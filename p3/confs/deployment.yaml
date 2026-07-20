@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p3-deployment
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: p3-deployment
+  template:
+    metadata:
+      labels:
+        app: p3-deployment
+    spec:
+      containers:
+        - name: p3-container
+          image: wil42/playground:v1
+          ports:
+            - containerPort: 8888
